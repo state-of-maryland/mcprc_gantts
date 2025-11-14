@@ -1,0 +1,119 @@
+Primary Column,Permitting Council ID (auto),Permit/Plan Review Category,Agency Internal ID,Permit/Plan Review Name or Description,Permit/Plan Review Agency,Review Type,Review Status,Submitted Date,Submitter Name,Communication Start Date,Initial Assessment Days,Initial Assessment Date,Review Period Days,Reviewer Name,Review Start Date,Approver Name,Permit Website Link,Issued Permit ID,Final Resolution Date,Expiration Date,Approval Date Variance,Permit Cancelled By,Assigned resource,Allocation %,Duration,% Complete,Predecessors,Sheet Name,Sheet ID,Approver name,submitted_business_days_to_today,communication_start_business_days_to_today,initial_assessment_business_days_to_today,review_start_business_days_to_today,final_resolution_business_days_to_today,expiration_business_days_to_today
+MDE-Land and Materials-Approved,BAIN0001,Wastewater discharge permits,20CPH087WA,,MDE-Land and Materials,New,Approved,2025-06-14T04:00:00-04:00,,,,,,"Jennifer Nitsch/Matt Perry
+mde.constructionswnoi@maryland.gov
+410-537-3292",,,https://egov.maryland.gov/mde/npdes/PublicNotice/ActivePermits,20CPH087WA,2025-06-14T12:59:59-04:00,,0,,,,1,100%,,Bainbridge Permit Tracking Sheet,595984821211012,,95.0,,,,95.0,
+MDE-Water and Science-Approved,BAIN0003,Wastewater discharge permits,CE1976S065(07),,MDE-Water and Science,New,Approved,2025-05-12T04:00:00-04:00,,,,,,,,,,.,2025-06-19T12:59:59-04:00,,29,,,,29,,,Bainbridge Permit Tracking Sheet,595984821211012,,119.0,,,,92.0,
+MDE-Land and Materials-Approved,BAIN0004,Environmental site assessments,2022-GWD-2913,,MDE-Land and Materials,New,Approved,2022-01-26T03:00:00-05:00,Toni Sprenkle,,,2022-03-06T19:00:00-05:00,40,andrew.grenzer@maryland.gov,2022-01-25T19:00:00-05:00,Kaley Laleker,https://mdedataviewer.mde.state.md.us/OpenDataDocuments?ID=2929104,2022-GWD-2913,2022-09-14T12:59:59-04:00,2027-09-12T20:00:00-04:00,138,,,,166,,,Bainbridge Permit Tracking Sheet,595984821211012,,940.0,,913.0,941.0,780.0,0.0
+MDOT-SHA-Review In Progress,BAIN0007,Transportation access permits,Diamond Jim Road extension request,Diamond Jim Road extension request,MDOT-SHA,New,Review In Progress,2023-09-25T04:00:00-04:00,"Lenhart Traffic Consulting, Inc.",2023-09-12T20:00:00-04:00,,,,"Henry R. Dierker III
+Access Permits Regional Engineer
+District Two Traffic
+410.810.3244 office
+410-708-0013 mobile
+Hdierker@mdot.maryland.gov
+Maryland State Highway Administration-District Two
+615 Morgnec Road, Chestertown, MD 21620",,,,.,2023-09-25T12:59:59-04:00,,1,,,,1,,,Bainbridge Permit Tracking Sheet,595984821211012,,524.0,533.0,,,524.0,
+MDOT-SHA-Review In Progress,BAIN0008,Transportation access permits,Traffic study,Traffic study,MDOT-SHA,New,Review In Progress,2023-02-21T03:00:00-05:00,"Lenhart Traffic Consulting, Inc.",2023-02-19T19:00:00-05:00,2,2023-02-21T19:00:00-05:00,60,"Henry R. Dierker III
+Access Permits Regional Engineer
+District Two Traffic
+410.810.3244 office
+410-708-0013 mobile
+Hdierker@mdot.maryland.gov
+Maryland State Highway Administration-District Two
+615 Morgnec Road, Chestertown, MD 21620",2023-02-21T19:00:00-05:00,Richard Baker,,.,2023-02-21T11:59:59-05:00,,-44,,,,1,,,Bainbridge Permit Tracking Sheet,595984821211012,,674.0,674.0,674.0,674.0,674.0,
+MDOT-SHA-OOTS-Review In Progress,BAIN0009,Transportation access permits,Revision of traffic impact analysis (goal of August 2025),Revision of traffic impact analysis (goal of August 2025),MDOT-SHA-OOTS,New,Review In Progress,,,,,,,,,,,.,,,0,,,,,,,Bainbridge Permit Tracking Sheet,595984821211012,,,,,,,
+MDOT-SHA-Review In Progress,BAIN0011,Transportation access permits,"MDOT access permit and additional offsite improvements (e.g., new traffic signals)","MDOT access permit and additional offsite improvements (e.g., new traffic signals)",MDOT-SHA,New,Review In Progress,,,,,,,,,,,.,,,0,,,,,,,Bainbridge Permit Tracking Sheet,595984821211012,,,,,,,
+MDOT-SHA-District 2-Approved,BAIN0013,Transportation access permits,"Phase I permit (extension is for the construction of the entrance for Lot 1) was issued on April 21, 2022, and has been extended to April 21, 2026","Phase I permit (extension is for the construction of the entrance for Lot 1) was issued on April 21, 2022, and has been extended to April 21, 2026",MDOT-SHA-District 2,New,Approved,2022-04-20T04:00:00-04:00,Bohler Engineering,2025-06-01T20:00:00-04:00,8,2025-06-05T20:00:00-04:00,,"Henry R. Dierker III
+Access Permits Regional Engineer
+District Two Traffic
+410.810.3244 office
+410-708-0013 mobile
+Hdierker@mdot.maryland.gov
+Maryland State Highway Administration-District Two
+615 Morgnec Road, Chestertown, MD 21620",,Richard Baker,,19-AP-CE-002-22,2022-04-20T12:59:59-04:00,2026-04-20T20:00:00-04:00,1,,,,1,,,Bainbridge Permit Tracking Sheet,595984821211012,,881.0,105.0,102.0,,881.0,0.0
+MDOT-SHA-District 2-Review In Progress,BAIN0014,Transportation access permits,Phase Lot ‘A’ currently under review with a fast-track pace with biweekly meetings,Phase Lot ‘A’ currently under review with a fast-track pace with biweekly meetings,MDOT-SHA-District 2,New,Review In Progress,2025-05-06T04:00:00-04:00,"Lenhart Traffic Consulting, Inc.",2025-02-09T19:00:00-05:00,1,2025-05-05T20:00:00-04:00,45,"Henry R. Dierker III
+Access Permits Regional Engineer
+District Two Traffic
+410.810.3244 office
+410-708-0013 mobile
+Hdierker@mdot.maryland.gov
+Maryland State Highway Administration-District Two
+615 Morgnec Road, Chestertown, MD 21621",2025-05-05T20:00:00-04:00,,,.,2025-05-06T12:59:59-04:00,,-34,,,,1,,,Bainbridge Permit Tracking Sheet,595984821211012,,123.0,183.0,124.0,124.0,123.0,
+DNR-Submitted,BAIN0015,Wetlands/waterway permits,202061782,"Joint Federal/State Application for the Alteration of Any Floodplain, Waterway, Tidal or Nontidal Wetland in Maryland",DNR,New,Submitted,2020-12-08T03:00:00-05:00,NAI The Michael Companies - Bainbridge Industrial Development Phase I,,,,,Roland Limpert,,,,,2020-12-08T11:59:59-05:00,,1,,,,1,,,Bainbridge Permit Tracking Sheet,595984821211012,,1220.0,,,,1220.0,
+DNR-Submitted,BAIN0016,Wetlands/waterway permits,202160676,"Joint Federal/State Application for the Alteration of Any Floodplain, Waterway, Tidal or Nontidal Wetland in Maryland",DNR,New,Submitted,2021-04-23T04:00:00-04:00,"MRPI Bainbridge I, LLC",,,,,Roland Limpert,,,,,2021-04-23T12:59:59-04:00,,1,,,,1,,,Bainbridge Permit Tracking Sheet,595984821211012,,1127.0,,,,1127.0,
+DNR-Submitted,BAIN0017,Wetlands/waterway permits,202461483,"Joint Federal/State Application for the Alteration of Any Floodplain, Waterway, Tidal or Nontidal Wetland in Maryland",DNR,New,Submitted,2024-11-07T03:00:00-05:00,MRP Industrial,,,,,Roland Limpert,,,,,2024-11-07T11:59:59-05:00,,1,,,,1,,,Bainbridge Permit Tracking Sheet,595984821211012,,244.0,,,,244.0,
+MHT-Submitted,BAIN0018,Wetlands/waterway permits,202061782/202004933,"Joint Federal/State Application for the Alteration of Any Floodplain, Waterway, Tidal or Nontidal Wetland in Maryland",MHT,New,Submitted,2020-12-21T03:00:00-05:00,NAI The Michael Companies - Bainbridge Industrial Development Phase I,,,,,Beth Cole,,,,,2020-12-21T11:59:59-05:00,,1,,,,1,,,Bainbridge Permit Tracking Sheet,595984821211012,,1211.0,,,,1211.0,
+MHT-Submitted,BAIN0019,,202200533/202101546,MD State Misc Grant Program,MHT,New,Submitted,2022-02-07T03:00:00-05:00,Bainbridge Development Corporation,,,,,Beth Cole,,,,,2022-02-07T11:59:59-05:00,,1,,,,1,,,Bainbridge Permit Tracking Sheet,595984821211012,,932.0,,,,932.0,
+MHT-Submitted,BAIN0020,Wetlands/waterway permits,202461483/202204401,"Joint Federal/State Application for the Alteration of Any Floodplain, Waterway, Tidal or Nontidal Wetland in Maryland",MHT,New,Submitted,2024-10-23T04:00:00-04:00,MRP Industrial,,,,,Becky Roman,,,,,2024-10-23T12:59:59-04:00,,1,,,,1,,,Bainbridge Permit Tracking Sheet,595984821211012,,255.0,,,,255.0,
+MDOT-SHA-District 2-Approved,BAIN0021,Transportation access permits,19apce00222,Bainbridge Project - Phase 1,MDOT-SHA-District 2,New,Approved,2019-05-15T04:00:00-04:00,"Lenhart Traffic Consulting, Inc.",2019-05-14T20:00:00-04:00,1,2019-05-14T20:00:00-04:00,45,"Henry R. Dierker III
+Access Permits Regional Engineer
+District Two Traffic
+410.810.3244 office
+410-708-0013 mobile
+Hdierker@mdot.maryland.gov
+Maryland State Highway Administration-District Two
+615 Morgnec Road, Chestertown, MD 21621",2019-05-14T20:00:00-04:00,Richard Baker,,19-AP-CE-002-22,2019-05-15T12:59:59-04:00,2026-04-20T20:00:00-04:00,-33,,,,1,,,Bainbridge Permit Tracking Sheet,595984821211012,,1611.0,1612.0,1612.0,1612.0,1611.0,0.0
+MHT-,BAIN0022,Historic preservation review,202200533,Bainbridge Naval Training Center Site Development,MHT,New,,2022-02-01T03:00:00-05:00,Bainbridge Development Corporation,,,,5,Beth Cole,2022-01-31T19:00:00-05:00,,,,2022-02-07T11:59:59-05:00,,1,,,,5,,,Bainbridge Permit Tracking Sheet,595984821211012,,936.0,,,937.0,932.0,
+MHT-,BAIN0024,Historic preservation review,202405512,2023 Bond Bill - No effect on historic properties,MHT,,,2024-12-19T03:00:00-05:00,Bainbridge Development Corporation,,32,,,Dixie Henry,2024-12-18T19:00:00-05:00,,,,2025-01-22T11:59:59-05:00,,25,,,,25,,,Bainbridge Permit Tracking Sheet,595984821211012,,217.0,,,218.0,196.0,
+OSFM-Approved,BAIN0025,Fire and Life Safety Review,,Final Fire Marshal Review,OSFM,New,Approved,2025-06-06T04:00:00-04:00,,,,,,Harry Bradley,,,,,2025-06-06T12:59:59-04:00,,1,,,,1,,,Bainbridge Permit Tracking Sheet,595984821211012,,101.0,,,,101.0,
+-,BAIN0026,,,,,,,,,,,,,,,,,,,,0,,,,,,,Bainbridge Permit Tracking Sheet,595984821211012,,,,,,,
+MHT-,LRAV0001,Historic preservation review,202502631,Consultation initiated by ECS Mid-Atlantic,MHT,New,,,,,,,30,,,,,,,,0,,,,,,,Loch Raven Permit Tracking Sheet,8555094548107140,,,,,,,
+MDOT-SHA-District 4-Submitted,LRAV0003,Transportation access permits,,2nd Review Cycle,MDOT-SHA-District 4,,Submitted,,,,,,30,R. Diamond,,,,,,,-4,,,,,,,Loch Raven Permit Tracking Sheet,8555094548107140,,,,,,,
+MHT-,PIML0003,Historic preservation review,202403668,"Pimlico Racetrack, DOE submitted to MHT",MHT,,,,,,,,35,Liz Casso,2024-08-14T20:00:00-04:00,,https://apps.mht.maryland.gov/compliancelog/ComplianceLogDetail.aspx?LogId=159144,,,,2,,,,,,,Pimlico Permit Tracking Sheet,8603266901299076,,,,,303.0,,
+MHT-,PIML0005,Historic preservation review,202502589,"Pimlico Racetrack, Consultation Reinitiated by MSA",MHT,,,,,,,,7,Liz Casso,2025-05-06T20:00:00-04:00,,,,,,1,,,,,,,Pimlico Permit Tracking Sheet,8603266901299076,,,,,123.0,,
+MHT-,PIML0006,Historic preservation review,202503590,"Pimlico Racetrack, Draft MOA submitted to MHT",MHT,,,,,,,,5,"Liz Casso, Dixie Henry",2025-07-16T20:00:00-04:00,,,,,,1,,,,,,,Pimlico Permit Tracking Sheet,8603266901299076,,,,,75.0,,
+MHT-,PIML0007,Historic preservation review,202503654,"Final MOA signed by MHT, MSA",MHT,,,,,,,,1,"Liz Casso, Dixie Henry",2025-07-21T20:00:00-04:00,,,,,,-2,,,,,,,Pimlico Permit Tracking Sheet,8603266901299076,,,,,72.0,,
+MDE-Land and Materials-Approved,PIML0008,Animal Feeding Operation Permit,CFO20140001,CAFO (New) Registration,MDE-Land and Materials,,Approved,,,,,,,,,,,,,2025-09-28T20:00:00-04:00,1,,,,,,,Pimlico Permit Tracking Sheet,8603266901299076,,,,,,,23.0
+MDE-Land and Materials-Voided,PIML0009,Permit - New,APN20080001,1996RGC03635,MDE-Land and Materials,,Voided,,,,,,,,,,,,,2012-09-04T20:00:00-04:00,1,,,,,,,Pimlico Permit Tracking Sheet,8603266901299076,,,,,,,3282.0
+MDE-Land and Materials-Approved,PIML0010,Permit - New,APN19960001,Permit,MDE-Land and Materials,,Approved,,,,,,,,,,,,,2049-12-31T19:00:00-05:00,1,,,,,,,Pimlico Permit Tracking Sheet,8603266901299076,,,,,,,0.0
+MDE-Land and Materials-Approved,PIML0011,Registrations,ARG20250001,Subsequent Notification - EPA 8/26/2025_MDR000016592_Hardcopy,MDE-Land and Materials,,Approved,,,,,,,,,,,,,,0,,,,,,,Pimlico Permit Tracking Sheet,8603266901299076,,,,,,,
+MDE-Land and Materials-Withdrawn,PIML0012,Animal Feeding Operation Permit,CFO20190001,CAFO (Renew) Application,MDE-Land and Materials,,Withdrawn,,,,,,,,,,,,,,0,,,,,,,Pimlico Permit Tracking Sheet,8603266901299076,,,,,,,
+MDE-Water and Science-Approved,PIML0013,Sed Strmwt & Dam Sft,ANP20250001,Pimlico Racing Facilities,MDE-Water and Science,,Approved,,,,,,,,,,,,,2027-06-17T20:00:00-04:00,1,,,,,,,Pimlico Permit Tracking Sheet,8603266901299076,,,,,,,0.0
+OSFM-Approved,PIML0014,Fire Protection Systems,,Preliminary Site Plan,OSFM,,Approved,,,,,,,Harry L. Bradley,,,,,,,0,,,,,,,Pimlico Permit Tracking Sheet,8603266901299076,,,,,,,
+OSFM-Approved,PIML0015,Fire Protection Systems,,50% CD Design Review Meeting,OSFM,,Approved,,,,,,,Harry L. Bradley,,,,,,,0,,,,,,,Pimlico Permit Tracking Sheet,8603266901299076,,,,,,,
+MDOT-SHA-District 7-Approved,QNTM0001,Transportation access permits,21APFR021XX,Traffic Impact Study,MDOT-SHA-District 7,New,Approved,,Wells & Associates,2021-10-31T20:00:00-04:00,0,2021-10-31T20:00:00-04:00,22,"Anish Thomas
+Regional Engineer               
+State Highway Administration  
+District 7                    
+athomas10@mdot.maryland.gov 
+301-624-8152",2023-10-16T20:00:00-04:00,Anish Thomas,,N/A,,,-5,N/A,,,,,,Quantum Permit Tracking Sheet,2274508036591492,,,996.0,996.0,510.0,,
+MDOT-SHA-District 7-Approved,QNTM0002,Transportation access permits,21APFR021XX,Plan review for Phase 1 improvement (US 15 at Mountville Rd - exclusive Right turn lane addition),MDOT-SHA-District 7,New,Approved,,Dewberry Engineering,2023-11-05T19:00:00-05:00,0,2023-11-05T19:00:00-05:00,30,Abdulwali Sherzai,2024-12-22T19:00:00-05:00,Anish Thomas,,N/A,,,-4,N/A,,,,,,Quantum Permit Tracking Sheet,2274508036591492,,,495.0,495.0,215.0,,
+MHT-Submitted,QNTM0004,Historic preservation review,202203871,Section 404 Clean Water Act permit for sewer line,MHT,New,Submitted,,USACE and MDE,,,,30,Dixie Henry,,,,,,,0,,,,,,,Quantum Permit Tracking Sheet,2274508036591492,,,,,,,
+MHT-Submitted,QNTM0006,Historic preservation review,202503192,Section 404 Clean Water Act permit for overall project,MHT,New,Submitted,,USACE and MDE,,,,30,Becky Roman and Dixie Henry,,,,,,,0,,,,,,,Quantum Permit Tracking Sheet,2274508036591492,,,,,,,
+MDE-Air and Radiation-Approved,QNTM0008,Permits To Construct,APC20150001,021-0005-6-0650 Extension to simple PTC for (1) Temp Crush.Opr.,MDE-Air and Radiation,,Approved,,,,,,,,,,,,,2015-12-30T19:00:00-05:00,1,,,,,,,Quantum Permit Tracking Sheet,2274508036591492,,,,,,,2454.0
+MDE-Air and Radiation-Approved,QNTM0009,Permits To Construct,APC20140001,021-0005-6-0650 Simple PTC Temp Crushing/Screening Operation,MDE-Air and Radiation,,Approved,,,,,,,,,,,,,2015-06-29T20:00:00-04:00,1,,,,,,,Quantum Permit Tracking Sheet,2274508036591492,,,,,,,2579.0
+MDE-Air and Radiation-Approved,QNTM0010,Permits To Construct,APC20130001,021-0005-6-0650 Simple PTC for (1) Temporary crushing operation,MDE-Air and Radiation,,Approved,,,,,,,,,,,,,2014-09-19T20:00:00-04:00,1,,,,,,,Quantum Permit Tracking Sheet,2274508036591492,,,,,,,2771.0
+MDE-Air and Radiation-Approval Terminated,QNTM0011,Part 70 Permits To Operate,APF20020001,Initial Part 70 PTO for Primary aluminum reduc pl,MDE-Air and Radiation,,Approval Terminated,,,,,,,,,,,,,2010-10-26T20:00:00-04:00,1,,,,,,,Quantum Permit Tracking Sheet,2274508036591492,,,,,,,3746.0
+MDE-Air and Radiation-Withdrawn,QNTM0012,Permits To Construct,APC20080001,TR12523 Simple S-M PTC for Mod. to potline conversion,MDE-Air and Radiation,,Withdrawn,,,,,,,,,,,,,,0,,,,,,,Quantum Permit Tracking Sheet,2274508036591492,,,,,,,
+MDE-Water and Science-Approval Terminated,QNTM0013,Wastewater Permits,AGR20160001,GDP New Registration,MDE-Water and Science,,Approval Terminated,,,,,,,,,,,,,2017-11-19T19:00:00-05:00,1,,,,,,,Quantum Permit Tracking Sheet,2274508036591492,,,,,,,1981.0
+MDE-Water and Science-Approval Terminated,QNTM0014,Wastewater Permits,AIP20120001,Permit,MDE-Water and Science,,Approval Terminated,,,,,,,,,,,,,2015-09-29T20:00:00-04:00,1,,,,,,,Quantum Permit Tracking Sheet,2274508036591492,,,,,,,2515.0
+MDE-Water and Science-Withdrawn,QNTM0015,Wastewater Permits,AIM20150001,Application,MDE-Water and Science,,Withdrawn,,,,,,,,,,,,,,0,,,,,,,Quantum Permit Tracking Sheet,2274508036591492,,,,,,,
+MDE-Land and Materials-Approval Terminated,QNTM0016,Oil Control,APR20110001,2011-OPT-3157,MDE-Land and Materials,,Approval Terminated,,,,,,,,,,,,,2015-09-29T20:00:00-04:00,1,,,,,,,Quantum Permit Tracking Sheet,2274508036591492,,,,,,,2515.0
+MDE-Land and Materials-Approved,QNTM0017,Solid Waste,APR20090001,Permit,MDE-Land and Materials,,Approved,,,,,,,,,,,,,2014-09-30T20:00:00-04:00,1,,,,,,,Quantum Permit Tracking Sheet,2274508036591492,,,,,,,2764.0
+MDE-Land and Materials-Approved,QNTM0018,Oil Control,APN20080001,2006-OPT-3157A,MDE-Land and Materials,,Approved,,,,,,,,,,,,,2011-04-24T20:00:00-04:00,1,,,,,,,Quantum Permit Tracking Sheet,2274508036591492,,,,,,,3624.0
+MDE-Land and Materials-Approved,QNTM0019,Solid Waste,APR20080001,2003-WIF-0537,MDE-Land and Materials,,Approved,,,,,,,,,,,,,2009-07-10T20:00:00-04:00,1,,,,,,,Quantum Permit Tracking Sheet,2274508036591492,,,,,,,4070.0
+MDE-Land and Materials-Completed,QNTM0020,Hazardous Waste,ARG20060001,Historic Record Application,MDE-Land and Materials,,Completed,,,,,,,,,,,,,,0,,,,,,,Quantum Permit Tracking Sheet,2274508036591492,,,,,,,
+MDE-Land and Materials-Approval In Progress,QNTM0021,Hazardous Waste,ARG20250001,Subsequent Notification - EPA 4/23/2025_MDD990759375_myRCRAid,MDE-Land and Materials,,Approval In Progress,,,,,,,,,,,,,,0,,,,,,,Quantum Permit Tracking Sheet,2274508036591492,,,,,,,
+MDE-Land and Materials-Approval In Progress,QNTM0022,Hazardous Waste,ARG20250002,Subsequent Notification - EPA 27 May 2025_MDD990759375_myRCRAid,MDE-Land and Materials,,Approval In Progress,,,,,,,,,,,,,,0,,,,,,,Quantum Permit Tracking Sheet,2274508036591492,,,,,,,
+MDE-Land and Materials-Approved,QNTM0023,Hazardous Waste,ARG20120001,EPA ID MDD990759375 Subsequent Application,MDE-Land and Materials,,Approved,,,,,,,,,,,,,,0,,,,,,,Quantum Permit Tracking Sheet,2274508036591492,,,,,,,
+MDE-Land and Materials-Federal Database Update,QNTM0024,Hazardous Waste,ARG20160001,EPA ID Subsequent Application - MDD990759375_2015BR,MDE-Land and Materials,,Federal Database Update,,,,,,,,,,,,,,0,,,,,,,Quantum Permit Tracking Sheet,2274508036591492,,,,,,,
+MDE-Land and Materials-Federal Database Update,QNTM0025,Hazardous Waste,ARG20170001,EPA ID Subsequent Application_MDD990759375_2017BR,MDE-Land and Materials,,Federal Database Update,,,,,,,,,,,,,,0,,,,,,,Quantum Permit Tracking Sheet,2274508036591492,,,,,,,
+MDE-Land and Materials-Document Completeness Review,QNTM0026,Hazardous Waste,ARG20060003,EPA ID Subsequent Application MDD990759375,MDE-Land and Materials,,Document Completeness Review,,,,,,,,,,,,,,0,,,,,,,Quantum Permit Tracking Sheet,2274508036591492,,,,,,,
+MDE-Land and Materials-Received,QNTM0027,Hazardous Waste,ARG20060002,Subsequent EPA Application,MDE-Land and Materials,,Received,,,,,,,,,,,,,,0,,,,,,,Quantum Permit Tracking Sheet,2274508036591492,,,,,,,
+MDE-Water and Science-Approved,QNTM0028,Wastewater Permits,AGR20250001,WMA5 GDP-Modification,MDE-Water and Science,,Approved,,,,,,,,,,,,,2025-09-28T20:00:00-04:00,1,,,,,,,Quantum Permit Tracking Sheet,2274508036591492,,,,,,,23.0
+MDE-Water and Science-Approval Terminated,QNTM0029,Wastewater Permits,AGR20240001,WMA5 GDP-New,MDE-Water and Science,,Approval Terminated,,,,,,,,,,,,,2025-04-13T20:00:00-04:00,1,,,,,,,Quantum Permit Tracking Sheet,2274508036591492,,,,,,,139.0
+MHT-Approved,QNTM0030,Historic preservation review,202504555,Additional Project Information Regarding Area of Potential Effect Provided by MDE,MHT,,Approved,,Kevin Sze,,,,34,Becky Roman and Dixie Henry,2025-09-18T20:00:00-04:00,,,,,,1,,,,,,,Quantum Permit Tracking Sheet,2274508036591492,,,,,30.0,,
+DNR-,QNTM0031,Wetlands/waterway permits,202560797,JPA - DNR environmental comments,DNR,,,,Kevin Sze,2025-06-09T20:00:00-04:00,,,,Jackie Silvia,2025-06-09T20:00:00-04:00,,,,,,0,,,,,,,Quantum Permit Tracking Sheet,2274508036591492,,,100.0,,100.0,,
+MDE-Land and Materials-Submitted,SBYM0001,Wetlands/waterway permits,NOTE: 20-CP coverage for any other projects that end up disturbing 1 or more acres (or will be part of a common plan that will do so).,,MDE-Land and Materials,New,Submitted,,,,,,,"Jennifer Nitsch/Matt Perry 
+mde.constructionswnoi@maryland.gov
+410-537-3292""",,,https://egov.maryland.gov/mde/npdes/Account/Login,,,,10,,,,,,,SBY Market Permit Tracking Sheet,6312015061536644,,,,,,,
+MDE-Water and Science-Submitted,SBYM0002,Wetlands/waterway permits,NOTE: Nontidal Wetlands and Waterway coverage for  projects that disturbs these resources may require authorizations.,,MDE-Water and Science,New,Submitted,,,,,,,"Tammy Roberson tammy.roberson@maryland.gov
+410-537-3522",,,,,,,41,,,,,,,SBY Market Permit Tracking Sheet,6312015061536644,,,,,,,
+MDE-Water and Science-Submitted,SBYM0003,Wetlands/waterway permits,"Note: Water Appropriation and Use Permit coverage may be required for the project depending on the water use source, amount and use type.",,MDE-Water and Science,New,Submitted,,,,,,,"Robert Peoples
+robert.peoples@maryland.gov
+410-537-4498",,,https://mde.maryland.gov/programs/Permits/Document,,,,32,,,,,,,SBY Market Permit Tracking Sheet,6312015061536644,,,,,,,
+MHT-,SBYM0004,Historic preservation review,202203206,Consultation Initiated by ECS Mid-Atlantic,MHT,New,,,,,,,30,Beth Cole and Becky Roman,2022-07-17T20:00:00-04:00,,,,,,-3,,,,,,,SBY Market Permit Tracking Sheet,6312015061536644,,,,,821.0,,
+MHT-,SBYM0006,Historic preservation review,202400197,DHCD submittal with site map and photos,MHT,,,,,,,,30,Beth Cole and Becky Roman,2024-01-16T19:00:00-05:00,,,,,,-13,,,,,,,SBY Market Permit Tracking Sheet,6312015061536644,,,,,450.0,,
+MHT-,SBYM0008,Historic preservation review,202403383,HUD Submittal from ECS Mid-Atlantic,MHT,,,,,,,,30,Becky Roman,,,,,,,-21,,,,,,,SBY Market Permit Tracking Sheet,6312015061536644,,,,,,,
+MHT-,SBYM0010,Historic preservation review,202502910,DHCD Submittal - Schematic Documents,MHT,,,,,,,,30,Becky Roman,,,,,,,-7,,,,,,,SBY Market Permit Tracking Sheet,6312015061536644,,,,,,,
+MDOT-SHA-District 1-On Hold,SBYM0012,Transportation access permits,,,MDOT-SHA-District 1,New,On Hold,,,,,,,,,,,,,,0,,,,,,,SBY Market Permit Tracking Sheet,6312015061536644,,,,,,,
+DNR-Submitted,SBYM0013,Comment Letter- Local Site Plan,SA 0115-25,Critical Area Commision,DNR,New,Submitted,,Salisbury Market Center,,,,,Michael Macon,2025-04-30T20:00:00-04:00,,,,,,0,,,,,,,SBY Market Permit Tracking Sheet,6312015061536644,,,,,127.0,,
