@@ -46,9 +46,7 @@
             </select>
         </div>
 
-        <!-- Plotly chart will be rendered here -->
-        <div id="chart-container" class="flex justify-center items-center">
-            <div class="loader"></div>
+        <div id="chart-container">
         </div>
     </div>
 
@@ -125,7 +123,6 @@
         // --- Plotting and Filtering Logic ---
 
         function filterAndPlot(projectId) {
-            chartDiv.innerHTML = `<div class="loader mx-auto"></div>`; // Show loader
 
             let filteredData = fullGanttData;
             if (projectId !== 'ALL_PROJECTS') {
