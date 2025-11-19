@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Timeline Viewer</title>
+    <!-- Load Tailwind CSS for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Plotly.js CDN for client-side charting -->
+    <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+    <style>
+        /* Set the Inter font */
+        body { font-family: 'Inter', sans-serif; }
+        /* Ensure the chart container takes up necessary space */
+        #chart-container { min-height: 600px; }
+        /* Style for the loading state */
+        .loader {
+            border: 6px solid #f3f3f3;
+            border-top: 6px solid #10b981; /* Tailwind emerald-500 */
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 p-4 sm:p-8">
+
+    <div class="max-w-7xl mx-auto bg-white p-6 sm:p-10 rounded-xl shadow-2xl">
+        <h1 class="text-3xl font-extrabold text-gray-900 mb-4 border-b pb-2">
+            Permit Processing Timeline
+        </h1>
+        <p class="text-gray-600 mb-6">Select a project to view its dedicated timeline using client-side JavaScript filtering.</p>
+
+        <div class="mb-8 p-4 bg-gray-100 rounded-lg">
+            <label for="project-selector" class="block text-sm font-medium text-gray-700 mb-2">
+                Filter by Project:
+            </label>
+            <select id="project-selector" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm rounded-md shadow-inner transition duration-150 ease-in-out">
+                <!-- Options will be populated by JavaScript -->
+                <option value="ALL_PROJECTS">Loading Projects...</option>
+            </select>
+        </div>
+
+        <!-- Plotly chart will be rendered here -->
+        <div id="chart-container" class="flex justify-center items-center">
+            <div class="loader"></div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables to hold the full dataset and the chart container
+        let fullGanttData = [];
+        const chartDiv = document.getElementById('chart-container');
+        const selector = document.getElementById('project-selector');
+
+        // --- Dummy Data (Used to unblock the preview environment) ---
+        // REPLACE THIS WITH THE ACTUAL FETCH CALL WHEN DEPLOYING TO GITHUB PAGES!
+        const DUMMY_GANTT_DATA =
+            [{"Project ID":"Bainbridge ","Permit ID":"BAIN0001","Activity":"Internal Comms Wait","Start":"2021-06-26","Finish":"2021-07-06","Duration (Days)":10},{"Project ID":"Bainbridge ","Permit ID":"BAIN0001","Activity":"Assessment Phase","Start":"2021-07-06","Finish":"2021-07-16","Duration (Days)":10},{"Project ID":"Bainbridge ","Permit ID":"BAIN0001","Activity":"Formal Review Period","Start":"2021-07-16","Finish":"2021-07-28","Duration (Days)":12},{"Project ID":"Bainbridge ","Permit ID":"BAIN0001","Activity":"Final Approval\/Buffer","Start":"2021-07-28","Finish":"2021-08-07","Duration (Days)":10},{"Project ID":"Bainbridge ","Permit ID":"BAIN0002","Activity":"Internal Comms Wait","Start":"2021-05-31","Finish":"2021-06-11","Duration (Days)":11},{"Project ID":"Bainbridge ","Permit ID":"BAIN0002","Activity":"Assessment Phase","Start":"2021-06-11","Finish":"2021-06-21","Duration (Days)":10},{"Project ID":"Bainbridge ","Permit ID":"BAIN0002","Activity":"Formal Review Period","Start":"2021-06-21","Finish":"2021-07-02","Duration (Days)":11},{"Project ID":"Bainbridge ","Permit ID":"BAIN0002","Activity":"Final Approval\/Buffer","Start":"2021-07-02","Finish":"2021-07-14","Duration (Days)":12},{"Project ID":"Bainbridge ","Permit ID":"BAIN0003","Activity":"Internal Comms Wait","Start":"2025-08-08","Finish":"2025-08-18","Duration (Days)":10},{"Project ID":"Bainbridge ","Permit ID":"BAIN0003","Activity":"Assessment Phase","Start":"2025-08-18","Finish":"2025-08-29","Duration (Days)":11},{"Project ID":"Bainbridge ","Permit ID":"BAIN0003","Activity":"Formal Review Period","Start":"2025-08-29","Finish":"2025-09-08","Duration (Days)":10},{"Project ID":"Bainbridge ","Permit ID":"BAIN0003","Activity":"Final Approval\/Buffer","Start":"2025-09-08","Finish":"2025-09-19","Duration (Days)":11},{"Project ID":"Bainbridge ","Permit ID":"BAIN0004","Activity":"Internal Comms Wait","Start":"2024-06-29","Finish":"2024-07-10","Duration (Days)":11},{"Project ID":"Bainbridge ","Permit ID":"BAIN0004","Activity":"Assessment Phase","Start":"2024-07-10","Finish":"2024-07-20","Duration (Days)":10},{"Project ID":"Bainbridge ","Permit ID":"BAIN0004","Activity":"Formal Review Period","Start":"2024-07-20","Finish":"2024-07-31","Duration (Days)":11},{"Project ID":"Bainbridge ","Permit ID":"BAIN0004","Activity":"Final Approval\/Buffer","Start":"2024-07-31","Finish":"2024-08-11","Duration (Days)":11},{"Project ID":"Bainbridge ","Permit ID":"BAIN0005","Activity":"Internal Comms Wait","Start":"2023-07-14","Finish":"2023-07-24","Duration (Days)":10},{"Project ID":"Bainbridge ","Permit ID":"BAIN0005","Activity":"Assessment Phase","Start":"2023-07-24","Finish":"2023-08-04","Duration (Days)":11},{"Project ID":"Bainbridge ","Permit ID":"BAIN0005","Activity":"Formal Review Period","Start":"2023-08-04","Finish":"2023-08-14","Duration (Days)":10},{"Project ID":"Bainbridge ","Permit ID":"BAIN0005","Activity":"Final Approval\/Buffer","Start":"2023-08-14","Finish":"2023-08-24","Duration (Days)":10},{"Project ID":"Bainbridge ","Permit ID":"BAIN0006","Activity":"Internal Comms Wait","Start":"2023-06-06","Finish":"2023-06-17","Duration (Days)":11},{"Project ID":"Bainbridge ","Permit ID":"BAIN0006","Activity":"Assessment Phase","Start":"2023-06-17","Finish":"2023-06-27","Duration (Days)":10},{"Project ID":"Bainbridge ","Permit ID":"BAIN0006","Activity":"Formal Review Period","Start":"2023-06-27","Finish":"2023-07-07","Duration (Days)":10},{"Project ID":"Bainbridge ","Permit ID":"BAIN0006","Activity":"Final Approval\/Buffer","Start":"2023-07-07","Finish":"2023-07-17","Duration (Days)":10},{"Project ID":"Loch Raven ","Permit ID":"LRAV0001","Activity":"Internal Comms Wait","Start":"2025-07-23","Finish":"2025-08-02","Duration (Days)":10},{"Project ID":"Loch Raven ","Permit ID":"LRAV0001","Activity":"Assessment Phase","Start":"2025-08-02","Finish":"2025-08-13","Duration (Days)":11},{"Project ID":"Loch Raven ","Permit ID":"LRAV0001","Activity":"Formal Review Period","Start":"2025-08-13","Finish":"2025-08-23","Duration (Days)":10},{"Project ID":"Loch Raven ","Permit ID":"LRAV0001","Activity":"Final Approval\/Buffer","Start":"2025-08-23","Finish":"2025-09-03","Duration (Days)":11},{"Project ID":"Loch Raven ","Permit ID":"LRAV0002","Activity":"Internal Comms Wait","Start":"2024-07-14","Finish":"2024-07-24","Duration (Days)":10},{"Project ID":"Loch Raven ","Permit ID":"LRAV0002","Activity":"Assessment Phase","Start":"2024-07-24","Finish":"2024-08-03","Duration (Days)":10},{"Project ID":"Loch Raven ","Permit ID":"LRAV0002","Activity":"Formal Review Period","Start":"2024-08-03","Finish":"2024-08-14","Duration (Days)":11},{"Project ID":"Loch Raven ","Permit ID":"LRAV0002","Activity":"Final Approval\/Buffer","Start":"2024-08-14","Finish":"2024-08-24","Duration (Days)":10},{"Project ID":"Loch Raven ","Permit ID":"LRAV0003","Activity":"Internal Comms Wait","Start":"2021-11-28","Finish":"2021-12-09","Duration (Days)":11},{"Project ID":"Loch Raven ","Permit ID":"LRAV0003","Activity":"Assessment Phase","Start":"2021-12-09","Finish":"2021-12-19","Duration (Days)":10},{"Project ID":"Loch Raven ","Permit ID":"LRAV0003","Activity":"Formal Review Period","Start":"2021-12-19","Finish":"2021-12-30","Duration (Days)":11},{"Project ID":"Loch Raven ","Permit ID":"LRAV0003","Activity":"Final Approval\/Buffer","Start":"2021-12-30","Finish":"2022-01-09","Duration (Days)":10},{"Project ID":"Loch Raven ","Permit ID":"LRAV0004","Activity":"Internal Comms Wait","Start":"2022-08-05","Finish":"2022-08-16","Duration (Days)":11},{"Project ID":"Loch Raven ","Permit ID":"LRAV0004","Activity":"Assessment Phase","Start":"2022-08-16","Finish":"2022-08-26","Duration (Days)":10},{"Project ID":"Loch Raven ","Permit ID":"LRAV0004","Activity":"Formal Review Period","Start":"2022-08-26","Finish":"2022-09-05","Duration (Days)":10},{"Project ID":"Loch Raven ","Permit ID":"LRAV0004","Activity":"Final Approval\/Buffer","Start":"2022-09-05","Finish":"2022-09-16","Duration (Days)":11},{"Project ID":"Loch Raven ","Permit ID":"LRAV0005","Activity":"Internal Comms Wait","Start":"2025-07-23","Finish":"2025-08-02","Duration (Days)":10},{"Project ID":"Loch Raven ","Permit ID":"LRAV0005","Activity":"Assessment Phase","Start":"2025-08-02","Finish":"2025-08-13","Duration (Days)":11},{"Project ID":"Loch Raven ","Permit ID":"LRAV0005","Activity":"Formal Review Period","Start":"2025-08-13","Finish":"2025-08-24","Duration (Days)":11},{"Project ID":"Loch Raven ","Permit ID":"LRAV0005","Activity":"Final Approval\/Buffer","Start":"2025-08-24","Finish":"2025-09-04","Duration (Days)":11},{"Project ID":"Loch Raven ","Permit ID":"LRAV0006","Activity":"Internal Comms Wait","Start":"2023-10-05","Finish":"2023-10-15","Duration (Days)":10},{"Project ID":"Loch Raven ","Permit ID":"LRAV0006","Activity":"Assessment Phase","Start":"2023-10-15","Finish":"2023-10-25","Duration (Days)":10},{"Project ID":"Loch Raven ","Permit ID":"LRAV0006","Activity":"Formal Review Period","Start":"2023-10-25","Finish":"2023-11-04","Duration (Days)":10},{"Project ID":"Loch Raven ","Permit ID":"LRAV0006","Activity":"Final Approval\/Buffer","Start":"2023-11-04","Finish":"2023-11-15","Duration (Days)":11},{"Project ID":"Pimlico","Permit ID":"PIML0001","Activity":"Internal Comms Wait","Start":"2023-03-04","Finish":"2023-03-15","Duration (Days)":11},{"Project ID":"Pimlico","Permit ID":"PIML0001","Activity":"Assessment Phase","Start":"2023-03-15","Finish":"2023-03-26","Duration (Days)":11},{"Project ID":"Pimlico","Permit ID":"PIML0001","Activity":"Formal Review Period","Start":"2023-03-26","Finish":"2023-04-06","Duration (Days)":11},{"Project ID":"Pimlico","Permit ID":"PIML0001","Activity":"Final Approval\/Buffer","Start":"2023-04-06","Finish":"2023-04-17","Duration (Days)":11},{"Project ID":"Pimlico","Permit ID":"PIML0002","Activity":"Internal Comms Wait","Start":"2022-08-07","Finish":"2022-08-18","Duration (Days)":11},{"Project ID":"Pimlico","Permit ID":"PIML0002","Activity":"Assessment Phase","Start":"2022-08-18","Finish":"2022-08-28","Duration (Days)":10},{"Project ID":"Pimlico","Permit ID":"PIML0002","Activity":"Formal Review Period","Start":"2022-08-28","Finish":"2022-09-07","Duration (Days)":10},{"Project ID":"Pimlico","Permit ID":"PIML0002","Activity":"Final Approval\/Buffer","Start":"2022-09-07","Finish":"2022-09-17","Duration (Days)":10},{"Project ID":"Pimlico","Permit ID":"PIML0003","Activity":"Internal Comms Wait","Start":"2020-06-27","Finish":"2020-07-07","Duration (Days)":10},{"Project ID":"Pimlico","Permit ID":"PIML0003","Activity":"Assessment Phase","Start":"2020-07-07","Finish":"2020-07-18","Duration (Days)":11},{"Project ID":"Pimlico","Permit ID":"PIML0003","Activity":"Formal Review Period","Start":"2020-07-18","Finish":"2020-07-29","Duration (Days)":11},{"Project ID":"Pimlico","Permit ID":"PIML0003","Activity":"Final Approval\/Buffer","Start":"2020-07-29","Finish":"2020-08-09","Duration (Days)":11},{"Project ID":"Pimlico","Permit ID":"PIML0004","Activity":"Internal Comms Wait","Start":"2022-03-28","Finish":"2022-04-08","Duration (Days)":11},{"Project ID":"Pimlico","Permit ID":"PIML0004","Activity":"Assessment Phase","Start":"2022-04-08","Finish":"2022-04-19","Duration (Days)":11},{"Project ID":"Pimlico","Permit ID":"PIML0004","Activity":"Formal Review Period","Start":"2022-04-19","Finish":"2022-04-30","Duration (Days)":11},{"Project ID":"Pimlico","Permit ID":"PIML0004","Activity":"Final Approval\/Buffer","Start":"2022-04-30","Finish":"2022-05-11","Duration (Days)":11},{"Project ID":"Pimlico","Permit ID":"PIML0005","Activity":"Internal Comms Wait","Start":"2025-08-31","Finish":"2025-09-10","Duration (Days)":10},{"Project ID":"Pimlico","Permit ID":"PIML0005","Activity":"Assessment Phase","Start":"2025-09-10","Finish":"2025-09-21","Duration (Days)":11},{"Project ID":"Pimlico","Permit ID":"PIML0005","Activity":"Formal Review Period","Start":"2025-09-21","Finish":"2025-10-01","Duration (Days)":10},{"Project ID":"Pimlico","Permit ID":"PIML0005","Activity":"Final Approval\/Buffer","Start":"2025-10-01","Finish":"2025-10-12","Duration (Days)":11},{"Project ID":"Pimlico","Permit ID":"PIML0006","Activity":"Internal Comms Wait","Start":"2024-07-10","Finish":"2024-07-20","Duration (Days)":10},{"Project ID":"Pimlico","Permit ID":"PIML0006","Activity":"Assessment Phase","Start":"2024-07-20","Finish":"2024-07-31","Duration (Days)":11},{"Project ID":"Pimlico","Permit ID":"PIML0006","Activity":"Formal Review Period","Start":"2024-07-31","Finish":"2024-08-10","Duration (Days)":10},{"Project ID":"Pimlico","Permit ID":"PIML0006","Activity":"Final Approval\/Buffer","Start":"2024-08-10","Finish":"2024-08-20","Duration (Days)":10},{"Project ID":"Quantum ","Permit ID":"QNTM0001","Activity":"Internal Comms Wait","Start":"2025-05-28","Finish":"2025-06-07","Duration (Days)":10},{"Project ID":"Quantum ","Permit ID":"QNTM0001","Activity":"Assessment Phase","Start":"2025-06-07","Finish":"2025-06-18","Duration (Days)":11},{"Project ID":"Quantum ","Permit ID":"QNTM0001","Activity":"Formal Review Period","Start":"2025-06-18","Finish":"2025-06-29","Duration (Days)":11},{"Project ID":"Quantum ","Permit ID":"QNTM0001","Activity":"Final Approval\/Buffer","Start":"2025-06-29","Finish":"2025-07-10","Duration (Days)":11},{"Project ID":"Quantum ","Permit ID":"QNTM0002","Activity":"Internal Comms Wait","Start":"2023-11-05","Finish":"2023-11-15","Duration (Days)":10},{"Project ID":"Quantum ","Permit ID":"QNTM0002","Activity":"Assessment Phase","Start":"2023-11-15","Finish":"2023-11-26","Duration (Days)":11},{"Project ID":"Quantum ","Permit ID":"QNTM0002","Activity":"Formal Review Period","Start":"2023-11-26","Finish":"2023-12-06","Duration (Days)":10},{"Project ID":"Quantum ","Permit ID":"QNTM0002","Activity":"Final Approval\/Buffer","Start":"2023-12-06","Finish":"2023-12-18","Duration (Days)":12},{"Project ID":"Quantum ","Permit ID":"QNTM0003","Activity":"Internal Comms Wait","Start":"2023-11-14","Finish":"2023-11-24","Duration (Days)":10},{"Project ID":"Quantum ","Permit ID":"QNTM0003","Activity":"Assessment Phase","Start":"2023-11-24","Finish":"2023-12-06","Duration (Days)":12},{"Project ID":"Quantum ","Permit ID":"QNTM0003","Activity":"Formal Review Period","Start":"2023-12-06","Finish":"2023-12-16","Duration (Days)":10},{"Project ID":"Quantum ","Permit ID":"QNTM0003","Activity":"Final Approval\/Buffer","Start":"2023-12-16","Finish":"2023-12-26","Duration (Days)":10},{"Project ID":"Quantum ","Permit ID":"QNTM0004","Activity":"Internal Comms Wait","Start":"2024-03-09","Finish":"2024-03-19","Duration (Days)":10},{"Project ID":"Quantum ","Permit ID":"QNTM0004","Activity":"Assessment Phase","Start":"2024-03-19","Finish":"2024-03-29","Duration (Days)":10},{"Project ID":"Quantum ","Permit ID":"QNTM0004","Activity":"Formal Review Period","Start":"2024-03-29","Finish":"2024-04-08","Duration (Days)":10},{"Project ID":"Quantum ","Permit ID":"QNTM0004","Activity":"Final Approval\/Buffer","Start":"2024-04-08","Finish":"2024-04-19","Duration (Days)":11},{"Project ID":"Quantum ","Permit ID":"QNTM0005","Activity":"Internal Comms Wait","Start":"2020-08-17","Finish":"2020-08-27","Duration (Days)":10},{"Project ID":"Quantum ","Permit ID":"QNTM0005","Activity":"Assessment Phase","Start":"2020-08-27","Finish":"2020-09-07","Duration (Days)":11},{"Project ID":"Quantum ","Permit ID":"QNTM0005","Activity":"Formal Review Period","Start":"2020-09-07","Finish":"2020-09-18","Duration (Days)":11},{"Project ID":"Quantum ","Permit ID":"QNTM0005","Activity":"Final Approval\/Buffer","Start":"2020-09-18","Finish":"2020-09-28","Duration (Days)":10},{"Project ID":"Quantum ","Permit ID":"QNTM0006","Activity":"Internal Comms Wait","Start":"2020-03-07","Finish":"2020-03-18","Duration (Days)":11},{"Project ID":"Quantum ","Permit ID":"QNTM0006","Activity":"Assessment Phase","Start":"2020-03-18","Finish":"2020-03-29","Duration (Days)":11},{"Project ID":"Quantum ","Permit ID":"QNTM0006","Activity":"Formal Review Period","Start":"2020-03-29","Finish":"2020-04-07","Duration (Days)":9},{"Project ID":"Quantum ","Permit ID":"QNTM0006","Activity":"Final Approval\/Buffer","Start":"2020-04-07","Finish":"2020-04-18","Duration (Days)":11},{"Project ID":"SBY Market ","Permit ID":"SBYM0001","Activity":"Internal Comms Wait","Start":"2020-05-28","Finish":"2020-06-07","Duration (Days)":10},{"Project ID":"SBY Market ","Permit ID":"SBYM0001","Activity":"Assessment Phase","Start":"2020-06-07","Finish":"2020-06-18","Duration (Days)":11},{"Project ID":"SBY Market ","Permit ID":"SBYM0001","Activity":"Formal Review Period","Start":"2020-06-18","Finish":"2020-06-29","Duration (Days)":11},{"Project ID":"SBY Market ","Permit ID":"SBYM0001","Activity":"Final Approval\/Buffer","Start":"2020-06-29","Finish":"2020-07-10","Duration (Days)":11},{"Project ID":"SBY Market ","Permit ID":"SBYM0002","Activity":"Internal Comms Wait","Start":"2020-12-12","Finish":"2020-12-23","Duration (Days)":11},{"Project ID":"SBY Market ","Permit ID":"SBYM0002","Activity":"Assessment Phase","Start":"2020-12-23","Finish":"2021-01-02","Duration (Days)":10},{"Project ID":"SBY Market ","Permit ID":"SBYM0002","Activity":"Formal Review Period","Start":"2021-01-02","Finish":"2021-01-12","Duration (Days)":10},{"Project ID":"SBY Market ","Permit ID":"SBYM0002","Activity":"Final Approval\/Buffer","Start":"2021-01-12","Finish":"2021-01-24","Duration (Days)":12},{"Project ID":"SBY Market ","Permit ID":"SBYM0003","Activity":"Internal Comms Wait","Start":"2023-10-14","Finish":"2023-10-24","Duration (Days)":10},{"Project ID":"SBY Market ","Permit ID":"SBYM0003","Activity":"Assessment Phase","Start":"2023-10-24","Finish":"2023-11-03","Duration (Days)":10},{"Project ID":"SBY Market ","Permit ID":"SBYM0003","Activity":"Formal Review Period","Start":"2023-11-03","Finish":"2023-11-13","Duration (Days)":10},{"Project ID":"SBY Market ","Permit ID":"SBYM0003","Activity":"Final Approval\/Buffer","Start":"2023-11-13","Finish":"2023-11-24","Duration (Days)":11},{"Project ID":"SBY Market ","Permit ID":"SBYM0004","Activity":"Internal Comms Wait","Start":"2023-02-16","Finish":"2023-02-27","Duration (Days)":11},{"Project ID":"SBY Market ","Permit ID":"SBYM0004","Activity":"Assessment Phase","Start":"2023-02-27","Finish":"2023-03-10","Duration (Days)":11},{"Project ID":"SBY Market ","Permit ID":"SBYM0004","Activity":"Formal Review Period","Start":"2023-03-10","Finish":"2023-03-20","Duration (Days)":10},{"Project ID":"SBY Market ","Permit ID":"SBYM0004","Activity":"Final Approval\/Buffer","Start":"2023-03-20","Finish":"2023-03-30","Duration (Days)":10},{"Project ID":"SBY Market ","Permit ID":"SBYM0005","Activity":"Internal Comms Wait","Start":"2025-09-18","Finish":"2025-09-28","Duration (Days)":10},{"Project ID":"SBY Market ","Permit ID":"SBYM0005","Activity":"Assessment Phase","Start":"2025-09-28","Finish":"2025-10-08","Duration (Days)":10},{"Project ID":"SBY Market ","Permit ID":"SBYM0005","Activity":"Formal Review Period","Start":"2025-10-08","Finish":"2025-10-18","Duration (Days)":10},{"Project ID":"SBY Market ","Permit ID":"SBYM0005","Activity":"Final Approval\/Buffer","Start":"2025-10-18","Finish":"2025-10-28","Duration (Days)":10},{"Project ID":"SBY Market ","Permit ID":"SBYM0006","Activity":"Internal Comms Wait","Start":"2024-01-10","Finish":"2024-01-21","Duration (Days)":11},{"Project ID":"SBY Market ","Permit ID":"SBYM0006","Activity":"Assessment Phase","Start":"2024-01-21","Finish":"2024-02-01","Duration (Days)":11},{"Project ID":"SBY Market ","Permit ID":"SBYM0006","Activity":"Formal Review Period","Start":"2024-02-01","Finish":"2024-02-13","Duration (Days)":12},{"Project ID":"SBY Market ","Permit ID":"SBYM0006","Activity":"Final Approval\/Buffer","Start":"2024-02-13","Finish":"2024-02-23","Duration (Days)":10}]
+        ;
+        
+        // --- Data Loading and Initialization ---
+        async function loadAndInitialize() {
+            try {
+                // IMPORTANT FIX FOR PREVIEW ENVIRONMENT:
+                // The 'fetch' API consistently fails to parse URLs in this sandboxed environment.
+                // We are using INLINE DUMMY DATA to unblock the preview rendering.
+                
+                // When deploying to GitHub Pages, uncomment the real fetch logic:
+                /*
+                const response = await fetch('./gantt_data.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                fullGanttData = await response.json();
+                */
+
+                // Temporary assignment for preview:
+                fullGanttData = DUMMY_GANTT_DATA;
+                
+                populateDropdown();
+                filterAndPlot('ALL_PROJECTS'); // Initial plot
+                
+            } catch (error) {
+                chartDiv.innerHTML = `<p class="text-red-600 p-4 bg-red-100 rounded-lg shadow-md">
+                    Error loading data: ${error.message}.
+                </p>`;
+                console.error("Initialization error:", error);
+            }
+        }
+
+        // --- Dropdown Population ---
+        function populateDropdown() {
+            // Get unique project IDs
+            const projectIDs = [...new Set(fullGanttData.map(d => d['Project ID']))].sort();
+            
+            // Clear existing options
+            selector.innerHTML = '';
+            
+            // 1. Add 'Show All' option
+            let allOption = document.createElement('option');
+            allOption.value = 'ALL_PROJECTS';
+            allOption.textContent = '➡️ Show All Projects';
+            selector.appendChild(allOption);
+
+            // 2. Add individual project options
+            projectIDs.forEach(id => {
+                let option = document.createElement('option');
+                option.value = id;
+                option.textContent = id;
+                selector.appendChild(option);
+            });
+
+            // Add event listener to handle filtering on change
+            selector.addEventListener('change', (event) => {
+                filterAndPlot(event.target.value);
+            });
+        }
+
+        // --- Plotting and Filtering Logic ---
+
+        function filterAndPlot(projectId) {
+            chartDiv.innerHTML = `<div class="loader mx-auto"></div>`; // Show loader
+
+            let filteredData = fullGanttData;
+            if (projectId !== 'ALL_PROJECTS') {
+                filteredData = fullGanttData.filter(d => d['Project ID'] === projectId);
+            }
+            
+            // 1. Prepare Traces (Data structure for Plotly.js Gantt chart)
+            // Plotly.js requires Gantt data to be structured by color group (Activity)
+            
+            // Get unique activities for coloring
+            const uniqueActivities = [...new Set(filteredData.map(d => d['Activity']))];
+            
+            // Get unique permits for y-axis ordering
+            const uniquePermits = [...new Set(filteredData.map(d => d['Permit ID']))]
+                                .sort((a, b) => a.localeCompare(b)).reverse(); // Reverse for typical Gantt order
+
+            let dataTraces = [];
+            
+            uniqueActivities.forEach(activity => {
+                const activityData = filteredData.filter(d => d['Activity'] === activity);
+
+                if (activityData.length > 0) {
+                    // Collect arrays for x_start, x_end, and y (Permit IDs)
+                    const xStart = activityData.map(d => d.Start);
+                    const xEnd = activityData.map(d => d.Finish);
+                    const y = activityData.map(d => d['Permit ID']);
+                    
+                    // Create hover text
+                    const text = activityData.map(d => 
+                        `${d['Permit ID']} (${d['Project ID']})<br>
+                         ${d.Activity}: ${d['Duration (Days)']} days`
+                    );
+
+                    dataTraces.push({
+                        type: 'bar', 
+                        orientation: 'h',
+                        x: activityData.map(d => new Date(d.Finish) - new Date(d.Start)), // Duration in ms
+                        base: activityData.map(d => new Date(d.Start)), // Start date for base
+                        y: y,
+                        name: activity,
+                        customdata: activityData.map(d => ({ 
+                            start: d.Start, 
+                            finish: d.Finish, 
+                            days: d['Duration (Days)'],
+                            project: d['Project ID']
+                        })),
+                        hovertemplate: '<b>Permit ID:</b> %{y}<br>' +
+                                       '<b>Activity:</b> ' + activity + '<br>' +
+                                       '<b>Start:</b> %{customdata.start}<br>' +
+                                       '<b>Finish:</b> %{customdata.finish}<br>' +
+                                       '<b>Duration:</b> %{customdata.days} days<extra></extra>',
+                        marker: {
+                            color: getColorForActivity(activity), // Use a fixed color
+                        }
+                    });
+                }
+            });
+
+            // 2. Define Layout
+            const layout = {
+                title: `Permit Processing Timeline: ${projectId === 'ALL_PROJECTS' ? 'All Projects' : projectId}`,
+                height: Math.max(500, uniquePermits.length * 35 + 150),
+                showlegend: true,
+                xaxis: {
+                    type: 'date',
+                    title: 'Date',
+                    rangeselector: {
+                        buttons: [
+                            { count: 1, label: '1m', step: 'month', stepmode: 'backward' },
+                            { count: 6, label: '6m', step: 'month', stepmode: 'backward' },
+                            { step: 'all', label: 'All' }
+                        ]
+                    },
+                    rangeslider: { visible: true },
+                },
+                yaxis: {
+                    autorange: 'reversed',
+                    title: 'Permit ID',
+                    categoryorder: 'array',
+                    categoryarray: uniquePermits, // Set the filtered category array
+                },
+                barmode: 'stack', // Stack segments horizontally
+                margin: { l: 150, r: 50, t: 100, b: 80 }
+            };
+
+            // 3. Plot the chart
+            Plotly.newPlot(chartDiv, dataTraces, layout, {responsive: true});
+        }
+
+        // Simple color mapping function for activities (as Plotly Express does this automatically)
+        function getColorForActivity(activity) {
+            const colors = {
+                'Initial Submission': '#10b981', // Emerald
+                'Internal Comms Wait': '#3b82f6', // Blue
+                'Assessment Phase': '#f97316', // Orange
+                'Formal Review Period': '#ef4444', // Red
+                'Final Approval/Buffer': '#8b5cf6' // Violet
+            };
+            return colors[activity] || '#6b7280'; // Default gray
+        }
+
+        // Start the application
+        window.onload = loadAndInitialize;
+    </script>
+</body>
+</html>
